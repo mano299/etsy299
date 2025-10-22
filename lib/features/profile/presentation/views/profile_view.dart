@@ -195,12 +195,23 @@ class _ProfileViewState extends State<ProfileView>
               builder: (context) => SplashView(),
             ));
       },
-      child: const Text(
-        "Logout",
-        style: TextStyle(
-          fontSize: 16,
-          color: Colors.white,
-        ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Text(
+            "Logout",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          SizedBox(width: 8),
+          Icon(
+            Icons.logout,
+            color: Colors.white,
+          ),
+        ],
       ),
     );
   }
