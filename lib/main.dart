@@ -1,10 +1,14 @@
+import 'package:etsy/features/core/shared.dart';
 import 'package:etsy/features/home/cubit/product_cubit.dart';
 import 'package:etsy/features/navigation/navigation.dart';
 import 'package:etsy/features/profile/cubit/profile_cubit.dart';
+import 'package:etsy/features/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Shared.init();
   runApp(const EtsyApp());
 }
 
@@ -44,7 +48,7 @@ class EtsyApp extends StatelessWidget {
             unselectedItemColor: Colors.grey,
           ),
         ),
-        home: Navigation(),
+        home: SplashView(),
       ),
     );
   }

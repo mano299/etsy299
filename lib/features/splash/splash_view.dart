@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 import 'dart:ui' as ui;
+import 'package:etsy/features/login/views/login_screen.dart';
+import 'package:etsy/features/navigation/navigation.dart';
 import 'package:etsy/features/profile/presentation/views/profile_view.dart';
 import 'package:flutter/material.dart';
 
@@ -57,7 +59,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     Future.delayed(const Duration(milliseconds: 4200), () {
       if (!mounted) return;
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (_) => const ProfileView()));
+          context, MaterialPageRoute(builder: (_) => const LoginScreen()));
     });
   }
 

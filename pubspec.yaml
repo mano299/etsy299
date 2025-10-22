@@ -35,6 +35,8 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^9.1.1
   font_awesome_flutter: ^10.9.1
+  image_picker: ^1.2.0
+  shared_preferences: ^2.5.3
   shimmer: ^3.0.0
 
 dev_dependencies:

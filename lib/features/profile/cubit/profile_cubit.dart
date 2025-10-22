@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 
 import '../data/data.dart';
@@ -24,19 +23,19 @@ class ProfileCubit extends Cubit<ProfileState> {
   }
 
   void updateUserData({
-  required String name,
-  required String phone,
-}) async {
-  emit(ProfileUpdateLoading());
+    required String name,
+    required String phone,
+    required String email,
+  }) async {
+    emit(ProfileUpdateLoading());
 
-  await User.updateUserData(
-    name: name,
-    phone: phone,
-  );
+    await User.updateUserData(
+      name: name,
+      phone: phone,
+      email: email,
+    );
 
-  emit(ProfileUpdated());
-  getUserData(); 
-}
-
-
+    emit(ProfileUpdated());
+    getUserData();
+  }
 }

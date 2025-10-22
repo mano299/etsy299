@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:etsy/features/core/constants.dart';
 
 import 'models/user_model.dart';
 
@@ -11,7 +12,7 @@ class User {
     var response = await dio.post(
       'https://elwekala.onrender.com/user/profile',
       data: {
-        "token": "hlxam3wzh1amh0vd355",
+        "token": kToken,
       },
     );
     UserModel userInfo = UserModel.fromJSon(response.data['user']);
@@ -22,16 +23,17 @@ class User {
   static Future<void> updateUserData({
     required String name,
     required String phone,
+    required String email,
   }) async {
     var res = await dio.put(
       "https://elwekala.onrender.com/user/update",
       data: {
-        "token": "hlxam3wzh1amh0vd355",
+        "token": kToken,
         "name": name,
         "phone": phone,
         // الإيميل والباسورد ثابتين
-        "email": "team3@gmail.com",
-        "password": "team3@gmail.com",
+        "email": email,
+        "password": kPassword,
       },
     );
 
@@ -46,8 +48,8 @@ class User {
   }) async {
     var del =
         await dio.delete("https://elwekala.onrender.com/user/delete", data: {
-      "email": "eewuw@gmail.com",
-      "password": "1234567893",
+      "email": email,
+      "password": password,
     });
     log(del.data['message']);
   }

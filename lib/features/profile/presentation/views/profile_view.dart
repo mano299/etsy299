@@ -1,3 +1,4 @@
+import 'package:etsy/features/login/views/login_screen.dart';
 import 'package:etsy/features/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -192,7 +193,7 @@ class _ProfileViewState extends State<ProfileView>
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => SplashView(),
+              builder: (context) => LoginScreen(),
             ));
       },
       child: Row(
@@ -304,7 +305,11 @@ class _ProfileViewState extends State<ProfileView>
     final email = _emailController.text.trim();
 
     if (name.isNotEmpty && phone.isNotEmpty && email.isNotEmpty) {
-      context.read<ProfileCubit>().updateUserData(name: name, phone: phone);
+      context.read<ProfileCubit>().updateUserData(
+            name: name,
+            phone: phone,
+            email: email,
+          );
       Navigator.pop(context);
     } else {
       showDialog(

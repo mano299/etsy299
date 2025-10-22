@@ -1,3 +1,4 @@
+import 'package:etsy/features/profile/presentation/views/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:etsy/features/home/presentation/views/home_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -17,7 +18,7 @@ class _NavigationState extends State<Navigation> {
     Center(child: Text("Shop", style: TextStyle(color: Colors.white))),
     Center(child: Text("Deals", style: TextStyle(color: Colors.white))),
     Center(child: Text("Favourites", style: TextStyle(color: Colors.white))),
-    Center(child: Text("Basket", style: TextStyle(color: Colors.white))),
+    ProfileView(),
   ];
 
   @override

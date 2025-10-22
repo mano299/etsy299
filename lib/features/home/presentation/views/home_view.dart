@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ---------------- Search Bar ثابت ----------------
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Container(
@@ -55,8 +54,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-
-            // ---------------- باقي الصفحة Scrollable ----------------
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(
@@ -64,7 +61,6 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Categories Scroll
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
@@ -77,8 +73,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       const SizedBox(height: 20),
-
-                      // Banner Row
                       Row(
                         children: [
                           Expanded(
@@ -137,7 +131,6 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                       const SizedBox(height: 30),
-
                       const Text(
                         "Extraordinary finds from real people",
                         style: TextStyle(
@@ -146,13 +139,11 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-
-                      // Products GridView
                       BlocBuilder<ProductCubit, ProductState>(
                         builder: (context, state) {
                           if (state is ProductLoadingState) {
                             return GridView.builder(
-                              itemCount: 6, // عدد العناصر الوهمية أثناء التحميل
+                              itemCount: 6,
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
                               gridDelegate:
