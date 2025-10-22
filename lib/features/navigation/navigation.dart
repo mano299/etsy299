@@ -1,3 +1,6 @@
+import 'package:etsy/features/Search/views_products/all_products_search_screens.dart';
+import 'package:etsy/features/card/screens/cart_screen.dart';
+import 'package:etsy/features/favorite/view/screen/fav_home_screen.dart';
 import 'package:etsy/features/profile/presentation/views/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:etsy/features/home/presentation/views/home_view.dart';
@@ -15,9 +18,9 @@ class _NavigationState extends State<Navigation> {
 
   List<Widget> views = const [
     HomePage(),
-    Center(child: Text("Shop", style: TextStyle(color: Colors.white))),
-    Center(child: Text("Deals", style: TextStyle(color: Colors.white))),
-    Center(child: Text("Favourites", style: TextStyle(color: Colors.white))),
+    AllProductsSearchScreens(),
+    FavHomeScreen(),
+    CartScreen(),
     ProfileView(),
   ];
 
@@ -40,7 +43,7 @@ class _NavigationState extends State<Navigation> {
           BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.house), label: "Home"),
           BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.magnifyingGlass), label: "Shop"),
+              icon: Icon(FontAwesomeIcons.magnifyingGlass), label: "Search"),
           BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.solidHeart), label: "Favourites"),
           BottomNavigationBarItem(

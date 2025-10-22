@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:etsy/features/core/shared.dart';
+import 'package:etsy/core/shared.dart';
 import 'package:etsy/features/login/model/model_login.dart';
 
 class LoginData {

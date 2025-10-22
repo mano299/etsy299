@@ -2,8 +2,6 @@ import 'dart:async';
 import 'dart:math';
 import 'dart:ui' as ui;
 import 'package:etsy/features/login/views/login_screen.dart';
-import 'package:etsy/features/navigation/navigation.dart';
-import 'package:etsy/features/profile/presentation/views/profile_view.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {

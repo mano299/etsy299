@@ -1,7 +1,13 @@
-import 'package:etsy/features/core/shared.dart';
+import 'package:etsy/core/constants.dart';
+import 'package:etsy/core/shared.dart';
+import 'package:etsy/features/card/cubit/card_cubit.dart';
+import 'package:etsy/features/card/cubit/fakecard_cubit.dart';
+import 'package:etsy/features/card/cubit/unifiedcard_cubit.dart';
+import 'package:etsy/features/favorite/cubit/fav_cubit.dart';
 import 'package:etsy/features/home/cubit/product_cubit.dart';
+import 'package:etsy/features/login/views/login_screen.dart';
+import 'package:etsy/features/navigation/navigation.dart';
 import 'package:etsy/features/profile/cubit/profile_cubit.dart';
-import 'package:etsy/features/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,12 +24,17 @@ class EtsyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (_) => ProfileCubit()),
+        BlocProvider(create: (_) => FavCubit()),
+        BlocProvider(create: (_) => CardCubit()..getCardCubit()),
+        BlocProvider(create: (_) => FakeCardCubit()),
         BlocProvider(
-          create: (context) => ProfileCubit(),
+          create: (context) => UnifiedCartCubit(
+            realCubit: BlocProvider.of<CardCubit>(context),
+            fakeCubit: BlocProvider.of<FakeCardCubit>(context),
+          ),
         ),
-        BlocProvider(
-          create: (context) => ProductCubit()..getDataCubit(),
-        ),
+        BlocProvider(create: (_) => ProductCubit()..getDataCubit()),
       ],
       child: MaterialApp(
         title: 'Etsy',
@@ -47,7 +58,7 @@ class EtsyApp extends StatelessWidget {
             unselectedItemColor: Colors.grey,
           ),
         ),
-        home: SplashView(),
+        home: kToken != null ? Navigation() : Navigation(),
       ),
     );
   }

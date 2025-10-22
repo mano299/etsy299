@@ -13,4 +13,7 @@ class Shared {
   static getString({required String key}) {
     return sharedPreferences!.getString(key);
   }
+  static Future<void> clearAll() async {
+    await sharedPreferences?.clear();
+  }
 }

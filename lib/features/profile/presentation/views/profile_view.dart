@@ -1,5 +1,4 @@
 import 'package:etsy/features/login/views/login_screen.dart';
-import 'package:etsy/features/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cubit/profile_cubit.dart';

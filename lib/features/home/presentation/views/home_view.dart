@@ -1,6 +1,7 @@
 import 'package:etsy/features/home/cubit/product_cubit.dart';
 import 'package:etsy/features/home/cubit/product_state.dart';
 import 'package:etsy/features/home/presentation/views/widgets/product_item.dart';
+import 'package:etsy/features/product/view/screens/details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
@@ -186,7 +187,18 @@ class _HomePageState extends State<HomePage> {
                               ),
                               itemBuilder: (context, index) {
                                 final product = filteredList[index];
-                                return ProductItem(product: product);
+                                return InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => DetailsScreen(
+                                            productModel: state.list[index],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                    child: ProductItem(product: product));
                               },
                             );
                           } else {

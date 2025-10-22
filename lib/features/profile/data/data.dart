@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:etsy/features/core/constants.dart';
+import 'package:etsy/core/constants.dart';
 
 import 'models/user_model.dart';
 
