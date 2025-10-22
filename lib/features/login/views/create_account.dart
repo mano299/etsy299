@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:etsy/features/login/cubit/login_cubit.dart';
 import 'package:etsy/features/login/data/validators.dart';
+import 'package:etsy/features/login/views/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -100,64 +101,75 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                       ),
                     ),
                     const SizedBox(height: 15),
-                    TextField(
-                        controller: name,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                            labelText: 'Full Name',
-                            labelStyle: TextStyle(color: Colors.grey))),
+                    CustomTextForm(
+                      validator: (p0) => MyValidators.displayNameValidator(p0),
+                      controller: name,
+                      keyboardType: TextInputType.text,
+                      hint: 'Name',
+                      label: 'Enter Your Name',
+                      icon: Icons.person,
+                    ),
                     const SizedBox(height: 10),
-                    TextField(
-                        controller: email,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                            labelText: 'Email',
-                            labelStyle: TextStyle(color: Colors.grey))),
+                    CustomTextForm(
+                      validator: (p0) => MyValidators.emailValidator(p0),
+                      controller: email,
+                      keyboardType: TextInputType.emailAddress,
+                      hint: 'Email',
+                      label: 'Enter Your Email',
+                      icon: Icons.email,
+                    ),
                     const SizedBox(height: 10),
-                    TextField(
-                        controller: password,
-                        obscureText: true,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                            labelText: 'Password',
-                            labelStyle: TextStyle(color: Colors.grey))),
+                    CustomTextForm(
+                      validator: (p0) => MyValidators.passwordValidator(p0),
+                      controller: password,
+                      keyboardType: TextInputType.text,
+                      hint: 'Password',
+                      label: 'Enter Your Password',
+                      icon: Icons.lock,
+                    ),
                     const SizedBox(height: 10),
-                    TextField(
-                        controller: phone,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                            labelText: 'Phone Number',
-                            labelStyle: TextStyle(color: Colors.grey))),
+                    CustomTextForm(
+                      validator: (p0) => MyValidators.phoneValidator(p0),
+                      controller: phone,
+                      keyboardType: TextInputType.number,
+                      hint: 'Phone',
+                      label: 'Enter Your Phone',
+                      icon: Icons.phone,
+                    ),
                     const SizedBox(height: 10),
-                    TextField(
-                        controller: nationalId,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                            labelText: 'National ID',
-                            labelStyle: TextStyle(color: Colors.grey))),
+                    CustomTextForm(
+                      validator: (p0) => MyValidators.nationalIdValidator(p0),
+                      controller: nationalId,
+                      keyboardType: TextInputType.number,
+                      hint: 'National ID',
+                      label: 'Enter Your National ID',
+                      icon: Icons.credit_card,
+                    ),
                     const SizedBox(height: 10),
-                    TextField(
-                        controller: gender,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                            labelText: 'Gender',
-                            labelStyle: TextStyle(color: Colors.grey))),
+                    CustomTextForm(
+                      validator: (p0) =>
+                          MyValidators.genderValidator(value: p0),
+                      controller: gender,
+                      keyboardType: TextInputType.text,
+                      hint: 'Gender',
+                      label: 'Enter Your Gender',
+                      icon: Icons.people,
+                    ),
                     const SizedBox(height: 30),
                     ElevatedButton(
                       onPressed: () async {
-                        String? nameError = FieldValidator.validateNotEmpty(
-                            name.text, 'Full Name');
+                        String? nameError =
+                            MyValidators.displayNameValidator(name.text);
                         String? emailError =
-                            FieldValidator.validateEmail(email.text);
+                            MyValidators.emailValidator(email.text);
                         String? passwordError =
-                            FieldValidator.validatePassword(password.text);
-                        String? phoneError = FieldValidator.validateNotEmpty(
-                            phone.text, 'Phone');
+                            MyValidators.passwordValidator(password.text);
+                        String? phoneError = MyValidators.phoneValidator(
+                          phone.text,
+                        );
                         String? nationalIdError =
-                            FieldValidator.validateNotEmpty(
-                                nationalId.text, 'National ID');
-                        String? genderError = FieldValidator.validateNotEmpty(
-                            gender.text, 'Gender');
+                            MyValidators.nationalIdValidator(nationalId.text);
+                        String? genderError = MyValidators.genderValidator(value: gender.text);
 
                         final errors = [
                           nameError,

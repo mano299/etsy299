@@ -134,9 +134,9 @@ class LoginScreen extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {
                             String? emailError =
-                                FieldValidator.validateEmail(email.text);
+                                MyValidators.emailValidator(email.text);
                             String? passwordError =
-                                FieldValidator.validatePassword(password.text);
+                                MyValidators.passwordValidator(password.text);
 
                             if (emailError != null) {
                               ScaffoldMessenger.of(context).showSnackBar(

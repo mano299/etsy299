@@ -31,7 +31,6 @@ class User {
         "token": kToken,
         "name": name,
         "phone": phone,
-        // الإيميل والباسورد ثابتين
         "email": email,
         "password": kPassword,
       },

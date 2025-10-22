@@ -42,7 +42,7 @@ class _NavigationState extends State<Navigation> {
           BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.magnifyingGlass), label: "Shop"),
           BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.heart), label: "Favourites"),
+              icon: Icon(FontAwesomeIcons.solidHeart), label: "Favourites"),
           BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.cartShopping), label: "Cart"),
           BottomNavigationBarItem(
