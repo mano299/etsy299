@@ -5,7 +5,7 @@ class CardModel {
   final String image;
   final String company;
   final String id;
-   num quantity;
+  num quantity;
   final num totalPrice;
   final num sales;
 

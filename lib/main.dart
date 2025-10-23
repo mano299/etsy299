@@ -25,7 +25,7 @@ class EtsyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => ProfileCubit()),
-        BlocProvider(create: (_) => FavCubit()),
+        BlocProvider(create: (_) => FavCubit()..loadFavorites()),
         BlocProvider(create: (_) => CardCubit()..getCardCubit()),
         BlocProvider(create: (_) => FakeCardCubit()),
         BlocProvider(
@@ -58,7 +58,7 @@ class EtsyApp extends StatelessWidget {
             unselectedItemColor: Colors.grey,
           ),
         ),
-        home: kToken != null ? Navigation() : Navigation(),
+        home: kToken != null ? Navigation() : LoginScreen(),
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:etsy/core/shared.dart';
 import 'package:etsy/features/login/views/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -189,6 +190,7 @@ class _ProfileViewState extends State<ProfileView>
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
       onPressed: () {
+        Shared.clearAll();
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(

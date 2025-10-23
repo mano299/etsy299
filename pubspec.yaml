@@ -35,6 +35,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^9.1.1
   font_awesome_flutter: ^10.9.1
+  gallery_image_viewer: ^1.2.0
   image_picker: ^1.2.0
   search_page: ^2.3.0
   shared_preferences: ^2.5.3
